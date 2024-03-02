@@ -1,0 +1,57 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .card {
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin: 0 auto;
+  }
+  
+  .example-form {
+    width: 80%;
+  }
+  
+  .example-full-width {
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  mat-card-header{
+    margin-top: 25px;
+  }
+  
+  .logbutton{
+    margin-top: 10px;
+      width: 100%;
+      color: white;
+      height: 40px;
+      background-color: #3F51B5;
+    
+  }
+  
+  .container{
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .containerdiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  mat-tab-group{
+    justify-items: center;
+  }
+
+  main {
+    margin: 0 auto;
+  }
