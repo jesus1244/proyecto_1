@@ -7,6 +7,10 @@
     left: 0;
     right: 0;
   }
+
+  .logout-button {
+    margin-left: auto; /* Esto moverá el botón log out hacia la derecha */
+  }
   
   .example-is-mobile .example-toolbar {
     position: fixed;

@@ -13,6 +13,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { PagesServiceService } from '../pages-service.service';
 import { User } from '../../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -34,16 +36,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSlideToggleModule,
+    MatSlideToggleModule
    ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
-  constructor( private service: PagesServiceService ) { }
+  constructor( private service: PagesServiceService, private router: Router ) { }
 
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailFormControl = new FormControl('', [Validators.required]);
 
   matcher = new MyErrorStateMatcher();
 
@@ -58,8 +60,13 @@ export class LoginComponent {
       username: this.user.username,
       password: this.user.password
     }
-    this.service.login(user).subscribe( data => {
-      console.log(data);
+
+    this.service.login(user).subscribe( (data: any) => {
+      
+      sessionStorage.setItem(`ACCESS_TOKEN`, data.data.access_token);
+
+      this.router.navigateByUrl("/home");
+
     })
   }
 }
